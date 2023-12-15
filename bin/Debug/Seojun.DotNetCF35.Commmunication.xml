@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Seojun.DotNetCF35.Commmunication</name>
+    </assembly>
+    <members>
+        <member name="T:Seojun.DotNetCF35.Commmunication.SocketStateChangedEventHandler">
+            <summary>
+            소켓 상태 변경 이벤트 델리게이트 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.SocketStateChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.SocketStateChangedEventArgs.#ctor(Seojun.DotNetCF35.Commmunication.SocketConnStates,System.Net.IPEndPoint)">
+            <summary>
+            
+            </summary>
+            <param name="commState"></param>
+            <param name="ipEndPoint"></param>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.SocketStateChangedEventArgs.CommState">
+            <summary>
+            소켓 통신 연결 상태
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.SocketStateChangedEventArgs.IPEndPoint">
+            <summary>
+            IPEndPoint
+            </summary>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.Sockets">
+            <summary>
+            Sockets 클래스
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.maxBufferSize">
+            <summary>
+            데이터 수신 버터 배열 크기
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.mSocketListener">
+            <summary>
+            클라이언트 소켓 멤버
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.mSocketClient">
+            <summary>
+            Socket Client 멤버
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.localEndPoint">
+            <summary>
+            EndPoint
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.recvBufferBytes">
+            <summary>
+            데이터 수신 버퍼 바이트 배열
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.sendBufferBytes">
+            <summary>
+            데이터 전송 버퍼 바이트 배열
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.largeDataReceiveBuffer">
+            <summary>
+            20180820 (2.1.4.8) : 대용량 데이터 수신 누적 버퍼
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.recvSourceBytes">
+            <summary>
+            수신 소스 바이트 배열
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.Sockets.recvDataBytes">
+            <summary>
+            수신 데이터 바이터 배열
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.#ctor">
+            <summary>
+            Socket Server 생성자
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Finalize">
+            <summary>
+            Socket Client 소멸자
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Dispose">
+            <summary>
+            객체 소멸
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Dispose(System.Boolean)">
+            <summary>
+            객체 소멸
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.OnSocketStateChanged(Seojun.DotNetCF35.Commmunication.SocketStateChangedEventArgs)">
+            <summary>
+            소켓 상태 변경 이벤트 파이어
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.OnDataReceived(Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs)">
+            <summary>
+            소켓 데이터 수신 이벤트 파이어
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Start">
+            <summary>
+            Socket Client 시작
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Stop">
+            <summary>
+            Socket 종료
+             - Shutdown(SocketShutdown.Both) 호출 후에 Close() 합니다
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.Write(System.Byte[])">
+            <summary>
+            바이트 정보 전송
+            </summary>
+            <param name="bytes">전송할 바이트 정보</param>
+            <returns>전송한 바이트 정보</returns>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.CallBack_Connect(System.IAsyncResult)">
+            <summary>
+            BeginConnect()'s call back fucntion
+             : SocketCommModes.Active
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.CallBack_Accept(System.IAsyncResult)">
+            <summary>
+            BeginAccept()'s call back function
+             : SocketCommModes.Passive
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.CallBack_Receive(System.IAsyncResult)">
+            <summary>
+            // BeginReceive()'s call back fucntion
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.Sockets.CallBack_SendMsg(System.IAsyncResult)">
+            <summary>
+            BeginSend's call back function
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="E:Seojun.DotNetCF35.Commmunication.Sockets.SocketStateChanged">
+            <summary>
+            소켓 상태 변경 이벤트
+            </summary>
+        </member>
+        <member name="E:Seojun.DotNetCF35.Commmunication.Sockets.DataReceived">
+            <summary>
+            데이터 수신 이벤트 핸들러
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.IsConnected">
+            <summary>
+            소켓 연결 상태
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.SocketCommState">
+            <summary>
+            소켓 통신 연결 상태
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.SocketConnMode">
+            <summary>
+            소켓 연결 모드
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.ServerIPAddress">
+            <summary>
+            소켓 Listener IP 줒소
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.PortNumber">
+            <summary>
+            접속 포트 번호
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.Header">
+            <summary>
+            헤더
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.Sockets.Terminator">
+            <summary>
+            터미네이터
+            </summary>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.DataReceivedEventHandler">
+            <summary>
+            데이터 수신 이벤트 델리게이트 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs.#ctor(System.Net.IPEndPoint,System.Byte[],System.Byte[])">
+            <summary>
+            데이터 수신 이벤트 구조체
+            </summary>
+            <param name="remoteIPEndPoint">송신자 IPEndPoint</param>
+            <param name="sourceBytes">소스 바이트 배열 : 수신된 정보에 헤더와 딜리미터를 포함하고 있습니다.</param>
+            <param name="dataBytes">데이터 바디 바이트 배열 : 수신된 원본 정보에서 헤더와 딜리미터를 제외합니다.</param>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs.RemoteIPEndPoint">
+            <summary>
+            송신자 IPEndPoint
+             : (주의)Socket 통신 모드에서만 유효함
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs.SourceBytes">
+            <summary>
+            소스 바이트 배열
+             : 수신된 정보에 헤더와 딜리미터를 포함하고 있습니다.
+            </summary>
+        </member>
+        <member name="P:Seojun.DotNetCF35.Commmunication.DataReceivedEventArgs.DataBytes">
+            <summary>
+            데이터 바디 바이트 배열
+             : 수신된 원본 정보에서 헤더와 딜리미터를 제외합니다.
+            </summary>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.SocketConnModes">
+            <summary>
+            소켓 통신 연결 모드
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnModes.Active">
+            <summary>
+            Client
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnModes.Passive">
+            <summary>
+            Server (Listener)
+            </summary>
+        </member>
+        <member name="T:Seojun.DotNetCF35.Commmunication.SocketConnStates">
+            <summary>
+            소켓 통신 연결 상태
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnStates.Unknown">
+            <summary>
+            없음
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnStates.Disconnected">
+            <summary>
+            연결 해제
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnStates.Waiting">
+            <summary>
+            대기 중
+            </summary>
+        </member>
+        <member name="F:Seojun.DotNetCF35.Commmunication.SocketConnStates.Connected">
+            <summary>
+            연결 상태
+            </summary>
+        </member>
+    </members>
+</doc>
